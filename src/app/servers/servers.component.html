@@ -1,2 +1,23 @@
-<button class="btn btn-primary" [disabled]="!allowNewServer">Add Server</button>
+
+<label>Server Name</label>
+<!-- Here You can edit the original Server name even if it had a name before(updates it completely) -->
+<!-- <input type="text" 
+       class="form-control"
+       (input)="onUpdateServerName($event)"> -->
+
+<!--Here You can assert the value within the application to show before, so user would see the original value, and after 
+they can only add to the orginial value, so no UPDATES just concatenating to origial value -->
+<input type="text" 
+       class="form-control"
+       [(ngModel)]="serverName">      
+
+<p>{{serverName}}</p>
+
+<button class="btn btn-primary" 
+    [disabled]="!allowNewServer" 
+    (click)="onCreateServer()">Add Server</button>
+
+<!-- <p [innerText]="allowNewServer"></p> -->
+
+<p>{{serverCreationStatus}}</p>
 <app-server></app-server>
